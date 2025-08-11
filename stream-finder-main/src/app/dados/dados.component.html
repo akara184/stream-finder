@@ -1,0 +1,221 @@
+<ion-content color="primary">
+
+  <ion-grid fluid class="filme ion-no-padding">
+    <ion-row>
+      <ion-col size="12" class="ion-no-padding">
+        <img src="{{'https://image.tmdb.org/t/p/w780' + details?.backdrop_path}}" alt={{details?.title}}>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col size="12">
+        <ng-container *ngIf="tipo == 'movie'; then title; else name"></ng-container>
+        
+        <ng-template #title>
+          <h1 class="ion-margin-vertical ion-margin-horizontal">
+            {{details?.title}}.
+          </h1>
+        </ng-template>
+        
+        <ng-template #name>
+          <h1 class="ion-margin-vertical ion-margin-horizontal">
+            {{ details?.name }}.
+          </h1>
+        </ng-template>
+      </ion-col>
+    </ion-row>
+    
+    <ion-row>
+      <ion-col size="12">
+        <ng-container *ngIf="tipo == 'movie'; then original_title; else original_name"></ng-container>
+        
+        <ng-template #original_title>
+          <p class="ion-text-start ion-margin-horizontal">
+            {{ details?.original_title }}.
+          </p>
+        </ng-template>
+
+        <ng-template #original_name>
+          <p class="ion-text-start ion-margin-horizontal">
+            {{ details?.original_name }}.
+          </p>
+        </ng-template>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col size="12">
+        <p class="overview ion-text-justify ion-font-20 ion-margin">
+          {{ details?.overview }}
+        </p>
+      </ion-col>
+    </ion-row>
+
+    <ion-grid fluid class="genero ion-no-padding ion-margin-horizontal">
+      <ion-row>
+        <ion-col size="12">
+          <p>
+            Gêneros:
+            <span *ngFor="let genre of details?.genres; let last = last">
+              {{ genre.name }}{{ !last? ', ': '.' }}
+            </span>
+          </p>
+        </ion-col>
+      </ion-row>
+      
+      <ion-row>
+        <ion-col size="12">
+          <ng-container *ngIf="tipo == 'movie'; then mDuracao; else tvQtdTemporada"></ng-container>
+          
+          <ng-template #mDuracao>
+            <p>Duração: {{ duracao }}.</p>
+          </ng-template>
+          
+          <ng-template #tvQtdTemporada>
+            <p>Temporadas: {{ qtdTemporadas }}.</p>
+          </ng-template>
+        </ion-col>
+      </ion-row>
+      
+      <ion-row>
+        <ion-col size="12">
+          <p>Data de lançamento: {{ data }}.</p>
+        </ion-col>
+      </ion-row>
+      
+      <ion-row>
+        <ion-col size="12">
+          <ng-container *ngIf="tipo == 'movie'; then mOrcamento; else tvStatus"></ng-container>
+          
+          <ng-template #mOrcamento>
+            <p>Orçamento: {{ orcamento }}.</p>
+          </ng-template>
+         
+          <ng-template #tvStatus>
+            <p>Status: {{ status }}.</p>
+          </ng-template>
+        </ion-col>
+      </ion-row>
+      
+      <ion-row *ngIf="tipo == 'movie'">
+        <ion-col size="12">
+          <p>Receita: {{ receita }}.</p>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-grid>
+
+
+    <ion-row>
+      <ion-col size="12" class="container">
+        <div class="circle" *ngIf="account_state?.favorite == false" (click)="addFavorite(details.id, true)"> <ion-icon name="heart-outline"></ion-icon></div>
+
+        <div class="circle" *ngIf="account_state?.favorite == true" (click)="addFavorite(details.id, false)"> <ion-icon name="heart"></ion-icon></div>
+
+        <div class="circle" *ngIf="account_state?.watchlist == false" (click)="addWatchList(details.id, true)"><ion-icon name="bookmark-outline" class="bookmark"></ion-icon></div>
+        <div class="circle" *ngIf="account_state?.watchlist == true"  (click)="addWatchList(details.id, false)"><ion-icon name="bookmark"></ion-icon></div>
+        
+      </ion-col>
+    </ion-row>
+
+  <ion-grid fluid class="streaming ion-no-padding ion-padding-bottom">
+    <ion-row class="streaming__descricao ion-margin">
+      <ion-col size="6" class="ion-text-start">
+        <h2> Onde assistir: </h2>
+      </ion-col>
+      <ion-col *ngIf="video?.length > 0" size="6" class="ion-text-end">
+        <a href="{{'https://www.youtube.com/watch?v=' + video}}" target="_blank">
+          Assistir ao trailer <ion-icon name="play"></ion-icon>
+        </a>
+      </ion-col>
+    </ion-row>
+
+    <ion-row
+      *ngIf="stream?.BR?.flatrate"
+      class="list ion-justify-content-around ion-margin-horizontal">
+      <ion-col size="2" *ngFor="let provider of stream?.BR.flatrate">
+        <img
+          class="logo"
+          src="{{'https://image.tmdb.org/t/p/w185' + provider.logo_path }}"
+          alt={{provider.provider_name}}
+        >
+      </ion-col>
+    </ion-row>
+
+    <ion-row *ngIf="!stream?.BR?.flatrate" class="ion-margin-horizontal">
+      <ion-col size="12">
+        <ng-container *ngIf="tipo == 'movie'; then mSemVideo; else tvSemVideo"></ng-container>
+        
+        <ng-template #mSemVideo>
+          <h2 class="ion-text-justify">
+            Este filme ainda não está disponível em nenhum serviço de streaming. Continue de olho para futuras atualizações!
+          </h2>
+        </ng-template>
+
+        <ng-template #tvSemVideo>
+          <h2 class="ion-text-justify">
+            Esta série ainda não está disponível em nenhum serviço de streaming. Continue de olho para futuras atualizações!
+          </h2>
+        </ng-template>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <div class="swiper__elenco ion-padding-vertical ion-margin-vertical">
+    <h2>Elenco:</h2>
+    <swiper-container
+      [modules]="swiperModules"
+      [slidesPerView]=screenWidth
+      [spaceBetween]="13"
+    >
+      <swiper-slide
+        *ngFor="let ator of credits?.cast"
+      >
+        <ng-container *ngIf="ator?.profile_path != null; then profileFoto; else noFoto"></ng-container>
+        
+        <ng-template #profileFoto>
+          <img src="{{'https://image.tmdb.org/t/p/w185' + ator?.profile_path }}" class="user" />
+        </ng-template>
+
+        <ng-template #noFoto>
+          <img src="assets/user.png" class="not-user" />
+        </ng-template>
+        <h3 class="ion-text-center">{{ator?.name}}</h3>
+      </swiper-slide>
+    </swiper-container>
+  </div>
+
+  <div class="swiper__recomendacao ion-padding-vertical">
+    <h2>Recomendações:</h2>
+    <swiper-container
+      [modules]="swiperModules"
+      [slidesPerView]=screenWidth
+      [spaceBetween]="13"
+    >
+      <ng-container *ngIf="tipo == 'movie'; then recMovie; else recTV"></ng-container>
+      
+      <ng-template #recMovie>
+        <swiper-slide
+          *ngFor="let filme of recomendacao"
+          routerLink="{{'/filme/' + filme.id}}"
+        >
+          <img
+            src="{{'https://image.tmdb.org/t/p/w185' + filme?.poster_path }}"
+          />
+        </swiper-slide>
+      </ng-template>
+
+      <ng-template #recTV>
+        <swiper-slide
+          *ngFor="let serie of recomendacao"
+          routerLink="{{'/serie/' + serie.id}}"
+        >
+          <img
+            src="{{'https://image.tmdb.org/t/p/w185' + serie?.poster_path }}"
+          />
+        </swiper-slide>
+      </ng-template>
+    </swiper-container>
+  </div>
+
+</ion-content>

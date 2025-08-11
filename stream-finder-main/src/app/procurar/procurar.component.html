@@ -1,0 +1,75 @@
+<ion-content color="primary">
+  <div class="pesquisa">
+    <ion-icon name="search-outline"></ion-icon>
+    <input type="text" [(ngModel)]="texto" (ngModelChange)="getMovie()" placeholder="Busque série ou filme">
+  </div>
+
+  <div *ngIf="moviesAndTV.length > 0 && texto">
+    <ion-card
+      class="card"
+      color="dark"
+      *ngFor="let item of moviesAndTV"
+
+    >
+      <ion-grid>
+        <ng-container *ngIf="item.media_type == 'movie'">
+          <ion-row routerLink="/filme/{{item.id}}">
+            <ion-col size="4" sizeSm="3" sizeMd="2">
+              <img src="{{'https://image.tmdb.org/t/p' + '/w500' + item.poster_path }}"/>
+            </ion-col>
+            <ion-col size="8" sizeSm="9" sizeMd="10">
+              <ion-card-header>
+                <ion-card-title>{{item.name}}</ion-card-title>
+                <ion-card-title>{{item.title}}</ion-card-title>
+                <ion-card-title>{{item.release_date | date: 'y'}}</ion-card-title>
+              </ion-card-header>
+              <ion-card-content>
+                <span>
+                  {{item.overview.slice(0,70)}}...
+                </span>
+              </ion-card-content>
+            </ion-col>
+          </ion-row>
+        </ng-container>
+        <ng-container *ngIf="item.media_type == 'tv'">
+          <ion-row routerLink="/serie/{{item.id}}">
+            <ion-col size="4" sizeSm="3" sizeMd="2">
+              <img src="{{'https://image.tmdb.org/t/p' + '/w500' + item.poster_path }}"/>
+            </ion-col>
+            <ion-col size="8" sizeSm="9" sizeMd="10">
+              <ion-card-header>
+                <ion-card-title>{{item.name}}</ion-card-title>
+                <ion-card-title>{{item.title}}</ion-card-title>
+                <ion-card-title>{{item.first_air_date  | date: 'y'}}</ion-card-title>
+              </ion-card-header>
+              <ion-card-content>
+                <span>
+                  {{item.overview.slice(0,70)}}...
+                </span>
+              </ion-card-content>
+            </ion-col>
+          </ion-row>
+        </ng-container>
+      </ion-grid>
+    </ion-card>
+  </div>
+
+
+  <div 
+    *ngIf="moviesAndTV.length == 0 && texto"
+    class="nao-encontrado"
+  >
+    <ion-icon name="alert-circle-outline"></ion-icon>
+    <h2>Filme/Série não encontrado</h2>
+  </div>
+
+  <div 
+    *ngIf="!moviesAndTV.length && !texto"
+    class="nao-encontrado"
+  >
+    <ion-icon name="search-circle"></ion-icon>
+    <h2>
+      Para encontrar o filme ou série desejado, por favor, utilize a barra de pesquisa acima.
+    </h2>
+  </div>
+</ion-content>

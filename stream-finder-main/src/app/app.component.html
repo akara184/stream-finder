@@ -1,0 +1,56 @@
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
+
+<ion-header routerLinkActive="disable">
+  <ion-toolbar color="secondary">
+
+    <ion-title>
+      <div class="header">
+        <ion-icon class="icon" name="play-circle"></ion-icon>
+        <span class="title">StreamFinder</span>
+      </div>
+    </ion-title>
+
+    <ion-buttons slot="end">
+      <!-- Verifica se sessionID é nulo ou vazio -->
+      <ion-button class="perfil" routerLink="/login" routerLinkActive="selected" *ngIf="!sessionID; else loggedOut">
+        <ion-icon name="person"></ion-icon>
+      </ion-button>
+
+      <!-- Caso sessionID não seja nulo ou vazio -->
+      <ng-template #loggedOut>
+        <ion-button class="logout" (click)="logout()" routerLink="/login" routerLinkActive="selected">
+          <ion-icon name="log-out-outline"></ion-icon>
+        </ion-button>
+      </ng-template>
+    </ion-buttons>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-app>
+  <ion-router-outlet></ion-router-outlet>
+</ion-app>
+
+<ion-tabs>
+  <ion-tab-bar slot="bottom" color="secondary">
+    <ion-tab-button tab="home" routerLink="/home" routerLinkActive="selected">
+      <ion-icon name="grid"></ion-icon>
+      Início
+    </ion-tab-button>
+
+    <ion-tab-button tab="alta" routerLink="/alta" routerLinkActive="selected">
+      <ion-icon name="flame"></ion-icon>
+      Em Alta
+    </ion-tab-button>
+
+    <ion-tab-button tab="procurar" routerLink="/procurar" routerLinkActive="selected">
+      <ion-icon name="search"></ion-icon>
+      Procurar
+    </ion-tab-button>
+
+    <ion-tab-button tab="lista" routerLink="/lista" routerLinkActive="selected">
+      <ion-icon name="list"></ion-icon>
+      Watchlist
+    </ion-tab-button>
+  </ion-tab-bar>
+</ion-tabs>

@@ -1,0 +1,62 @@
+.pesquisa{
+  position: relative;
+  margin: 10px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  ion-icon{
+    position: absolute;
+    color: black;
+    left: 11%;
+    margin-right: 5px;
+    font-size: 25px;
+  }
+
+  input{
+    width: 80%;
+    height: 35px;
+    font-size: 20px;
+    border-radius: 8px;
+    background-color: white;
+    border: none;
+    color: black;
+    padding: 0 10px 0 33px;
+  }
+}
+
+.card{
+
+  img{
+    border-radius: 6px;
+    max-width:120px;
+    max-height:180px;
+  }
+
+  ion-card-title{
+    font-size: 23px;
+  }
+
+  .card {
+    box-shadow: 1px 4px 8px rgba(0, 0, 0, 0.1); /* Adiciona uma sombra suave */
+  }
+}
+
+.nao-encontrado{
+  height: 50vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  ion-icon{
+    font-size: 125px;
+    margin-bottom: 10px;
+  }
+
+  h2{
+    text-align: center;
+    font-size: 23px;
+    width: 85%;
+  }
+}

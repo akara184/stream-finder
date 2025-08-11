@@ -1,0 +1,24 @@
+<ion-content color="secondary">
+  <div class="content">
+    <div class="logo">
+      <ion-icon class="icon" name="play-circle"></ion-icon>
+      <h1 class="title">StreamFinder</h1>
+    </div>
+
+    <ion-item class="input" color="tertiary">
+      <ion-input placeholder="Usuário" type="text" [(ngModel)]="username"></ion-input>
+    </ion-item>
+
+    <ion-item class="input" color="tertiary">
+      <ion-input placeholder="Senha" type="password" [(ngModel)]="password"></ion-input>
+    </ion-item>
+
+    <p>Ainda não tem uma conta? <a href="https://www.themoviedb.org/signup?language=pt-BR" target="_blank">Cadastre-se</a></p>
+
+    <ion-button color="medium" class="btn" expand="block" (click)="createRequestToken()">Entrar</ion-button>
+
+    <ion-text *ngIf="showError" color="medium">
+      {{errorMsg}}
+    </ion-text>
+  </div>
+</ion-content>

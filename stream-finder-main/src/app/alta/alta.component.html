@@ -1,0 +1,60 @@
+<ion-content color="primary">
+  <ion-card class="card" color="dark" *ngFor="let item of movies">
+    <ion-grid fluid>
+      <ion-row tab="filme" routerLink="/filme/{{item.id}}">
+        
+        <ion-col size="4" sizeSm="3" sizeMd="2">
+          <img src="{{'https://image.tmdb.org/t/p' + '/original' + item.poster_path }}"/>
+        </ion-col>
+
+        <ion-col size="8" sizeSm="9" sizeMd="10">
+          <ion-card-header>
+            <ion-card-title>{{item.title}}</ion-card-title>
+            <ion-card-title>{{item.release_date | date: 'y'}}</ion-card-title>
+          </ion-card-header>
+
+          <ion-card-content>
+            <span>
+              {{item.overview.slice(0,70)}}...
+            </span>
+          </ion-card-content>
+        </ion-col>
+
+      </ion-row>
+    </ion-grid>
+  </ion-card>
+
+
+  <ion-card class="card" color="dark" *ngFor="let item of tv">
+    <ion-grid fluid>
+      <ion-row tab="filme" routerLink="/serie/{{item.id}}">
+
+        <ion-col size="4" sizeSm="3" sizeMd="2">
+          <img src="{{'https://image.tmdb.org/t/p' + '/original' + item.poster_path }}"/>
+        </ion-col>
+
+        <ion-col size="8" sizeSm="9" sizeMd="10">
+          <ion-card-header>
+            <ion-card-title>{{item.name}}</ion-card-title>
+            <ion-card-title>{{item.first_air_date | date: 'y'}}</ion-card-title>
+          </ion-card-header>
+
+          <ion-card-content>
+            <span>
+              {{item.overview.slice(0,70)}}...
+            </span>
+          </ion-card-content>
+        </ion-col>
+
+      </ion-row>
+    </ion-grid>
+  </ion-card>
+
+  
+  <ion-infinite-scroll (ionInfinite) = "loadMore($event)">
+    <ion-infinite-scroll-content
+      loadingSpinner="bubbles"> </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+
+
+</ion-content>

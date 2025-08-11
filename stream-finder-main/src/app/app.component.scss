@@ -1,0 +1,40 @@
+.disable{
+  display: none;
+}
+
+//header
+.header{
+  font-size: 30px;
+  font-weight: bolder;
+  padding-left: 35px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+
+  .icon{
+    font-size: 40px;
+  }
+}
+
+.perfil{
+  font-size: 20px;
+  color: white;
+}
+
+.logout{
+  font-size: 20px;
+  color: black;
+}
+
+//footer
+.selected{
+  color: black;
+}
+
+ion-tab-button{
+  font-size: 14px;
+  font-weight: bolder;
+  color: white;
+}

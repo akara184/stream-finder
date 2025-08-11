@@ -1,0 +1,40 @@
+.content{
+  display: flex;
+  height: 80%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .logo{
+    display: flex;
+    align-items: center;
+    padding-bottom: 3em;
+    .icon{
+      font-size: 40px;
+    }
+    .title{
+      font-size: 30px;
+      font-weight: bolder;
+    }
+  }
+
+  p{
+    margin-bottom: .5em;
+    a{
+      font-weight: bolder;
+      text-decoration: none;
+    }
+  }
+
+  .input{
+    width: 80%;
+    margin-bottom: 1em;
+    border-radius: 15px;
+    border: 2px solid black;
+  }
+  .btn{
+    border-radius: 15px;
+    width: 80%;
+    height: 3em;
+  }
+}

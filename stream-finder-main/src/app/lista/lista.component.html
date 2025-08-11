@@ -1,0 +1,72 @@
+<ion-content color="primary">
+  <div *ngIf="!accountID && !sessionID" class="vazio">
+    <ion-icon name="log-in-outline"></ion-icon>
+    <h2>Olá! Para adicionar filmes à sua lista, por favor, faça login na sua conta.</h2>
+  </div>
+    
+  <div *ngIf="accountID && sessionID && movies!.length == 0" class="vazio">
+    <ion-icon name="add-circle-outline"></ion-icon>
+    <h2>Sua lista de filmes está vazia! Que tal começar a adicionar alguns títulos agora mesmo?</h2>
+
+  </div>
+
+ <ng-container >
+  <div *ngIf="accountID && sessionID && movies!.length > 0">
+    <ion-card class="card" color="dark" *ngFor="let item of movies">
+      <ion-grid fluid>
+        <ion-row tab="filme" routerLink="/filme/{{item.id}}">
+
+          <ion-col size="4" sizeSm="3" sizeMd="2">
+            <img src="{{'https://image.tmdb.org/t/p' + '/original' + item.poster_path }}"/>
+          </ion-col>
+          <ion-col size="8" sizeSm="9" sizeMd="10">
+            <ion-card-header>
+              <ion-card-title>{{item.title}}</ion-card-title>
+              <ion-card-title>{{item.release_date | date: 'y'}}
+          <ion-icon (click)="addWatchList('movie',item.id, false);   $event.stopPropagation(); " name="bookmark" class="bookmark  circle "></ion-icon>
+              </ion-card-title>
+            </ion-card-header>
+            <ion-card-content>
+              <p>
+                {{item.overview.slice(0,70)}}...
+              </p>
+            </ion-card-content>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card>
+  </div>
+  </ng-container>
+
+
+ <ng-container   >
+  <div *ngIf="accountID && sessionID && movies!.length > 0">
+    <ion-card class="card" color="dark" *ngFor="let item of tv">
+      <ion-grid fluid>
+        <ion-row tab="filme" routerLink="/serie/{{item.id}}">
+
+          <ion-col size="4" sizeSm="3" sizeMd="2">
+            <img src="{{'https://image.tmdb.org/t/p' + '/original' + item.poster_path }}"/>
+          </ion-col>
+          <ion-col size="8" sizeSm="9" sizeMd="10">
+            <ion-card-header>
+              <ion-card-title>{{item.name}}</ion-card-title>
+              <ion-card-title>{{item.first_air_date | date: 'y'}}
+          <ion-icon (click)="addWatchList('tv',item.id, false);   $event.stopPropagation(); " name="bookmark" class="bookmark  circle "></ion-icon>
+              </ion-card-title>
+            </ion-card-header>
+            <ion-card-content>
+              <p>
+                {{item.overview.slice(0,70)}}...
+              </p>
+            </ion-card-content>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card>
+  </div>
+  </ng-container>
+ 
+
+
+</ion-content>

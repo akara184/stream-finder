@@ -1,0 +1,383 @@
+
+<ion-content color="primary">
+  <ion-text>
+    <h2>Filmes de ação</h2>
+  </ion-text>
+
+  <swiper-container [modules]="swiperModules" [slidesPerView]=screenWidth [spaceBetween]="13">
+    <swiper-slide
+      *ngFor="let item of actionMovies"
+      routerLink="{{'/filme/' + item?.id}}"
+    >
+      <img 
+        src="{{'https://image.tmdb.org/t/p/w500' + item?.poster_path }}"
+      />
+    </swiper-slide>
+  </swiper-container>
+
+
+
+  <ion-text>
+    <h2>Séries de ação</h2>
+  </ion-text>
+
+  <swiper-container [modules]="swiperModules" [slidesPerView]=screenWidth [spaceBetween]="13">
+    <swiper-slide
+      *ngFor="let item of actionTV"
+      routerLink="{{'/serie/' + item?.id}}"
+    >
+      <img
+        src="{{'https://image.tmdb.org/t/p/w500' + item?.poster_path }}"
+      />
+    </swiper-slide>
+  </swiper-container>
+
+
+  <ion-text>
+    <h2>Filmes de aventura</h2>
+  </ion-text>
+
+  <swiper-container [modules]="swiperModules" [slidesPerView]=screenWidth [spaceBetween]="13">
+    <swiper-slide
+      *ngFor="let item of adventureMovies"
+      routerLink="{{'/filme/' + item?.id}}"
+    >
+      <img 
+        src="{{'https://image.tmdb.org/t/p/w500' + item?.poster_path }}"
+      />
+    </swiper-slide>
+  </swiper-container>
+
+  <ion-text>
+    <h2>Filmes de animação</h2>
+  </ion-text>
+
+  <swiper-container [modules]="swiperModules" [slidesPerView]=screenWidth [spaceBetween]="13">
+    <swiper-slide
+      *ngFor="let item of animationMovies"
+      routerLink="{{'/filme/' + item?.id}}"
+    >
+      <img 
+        src="{{'https://image.tmdb.org/t/p/w500' + item?.poster_path }}"
+      />
+    </swiper-slide>
+  </swiper-container>
+
+  <ion-text>
+    <h2>Séries de animação</h2>
+  </ion-text>
+
+  <swiper-container [modules]="swiperModules" [slidesPerView]=screenWidth [spaceBetween]="13">
+    <swiper-slide
+      *ngFor="let item of animationTV"
+      routerLink="{{'/serie/' + item?.id}}"
+    >
+      <img
+        src="{{'https://image.tmdb.org/t/p/w500' + item?.poster_path }}"
+      />
+    </swiper-slide>
+  </swiper-container>
+
+
+
+  <ion-text>
+    <h2>Filmes de comédia</h2>
+  </ion-text>
+
+  <swiper-container [modules]="swiperModules" [slidesPerView]=screenWidth [spaceBetween]="13">
+    <swiper-slide
+      *ngFor="let item of comedyMovies"
+      routerLink="{{'/filme/' + item?.id}}"
+    >
+      <img 
+        src="{{'https://image.tmdb.org/t/p/w500' + item?.poster_path }}"
+      />
+    </swiper-slide>
+  </swiper-container>
+
+
+  <ion-text>
+    <h2>Séries de comédia</h2>
+  </ion-text>
+
+  <swiper-container [modules]="swiperModules" [slidesPerView]=screenWidth [spaceBetween]="13">
+    <swiper-slide
+      *ngFor="let item of comedyTV"
+      routerLink="{{'/serie/' + item?.id}}"
+    >
+      <img
+        src="{{'https://image.tmdb.org/t/p/w500' + item?.poster_path }}"
+      />
+    </swiper-slide>
+  </swiper-container>
+
+
+
+  <ion-text>
+    <h2>Filmes de crime</h2>
+  </ion-text>
+
+  <swiper-container [modules]="swiperModules" [slidesPerView]=screenWidth [spaceBetween]="13">
+    <swiper-slide
+      *ngFor="let item of crimeMovies"
+      routerLink="{{'/filme/' + item?.id}}"
+    >
+      <img 
+        src="{{'https://image.tmdb.org/t/p/w500' + item?.poster_path }}"
+      />
+    </swiper-slide>
+  </swiper-container>
+
+
+  <ion-text>
+    <h2>Séries de crime</h2>
+  </ion-text>
+
+  <swiper-container [modules]="swiperModules" [slidesPerView]=screenWidth [spaceBetween]="13">
+    <swiper-slide
+      *ngFor="let item of crimeTV"
+      routerLink="{{'/serie/' + item?.id}}"
+    >
+      <img
+        src="{{'https://image.tmdb.org/t/p/w500' + item?.poster_path }}"
+      />
+    </swiper-slide>
+  </swiper-container>
+
+
+
+  <ion-text>
+    <h2>Filmes de drama</h2>
+  </ion-text>
+
+  <swiper-container [modules]="swiperModules" [slidesPerView]=screenWidth [spaceBetween]="13">
+    <swiper-slide
+      *ngFor="let item of dramaMovies"
+      routerLink="{{'/filme/' + item?.id}}"
+    >
+      <img 
+        src="{{'https://image.tmdb.org/t/p/w500' + item?.poster_path }}"
+      />
+    </swiper-slide>
+  </swiper-container>
+
+
+  <ion-text>
+    <h2>Séries de drama</h2>
+  </ion-text>
+
+  <swiper-container [modules]="swiperModules" [slidesPerView]=screenWidth [spaceBetween]="13">
+    <swiper-slide
+      *ngFor="let item of dramaTV"
+      routerLink="{{'/serie/' + item?.id}}"
+    >
+      <img
+        src="{{'https://image.tmdb.org/t/p/w500' + item?.poster_path }}"
+      />
+    </swiper-slide>
+  </swiper-container>
+
+
+  <ion-text>
+    <h2>Filmes de família</h2>
+  </ion-text>
+
+  <swiper-container [modules]="swiperModules" [slidesPerView]=screenWidth [spaceBetween]="13">
+    <swiper-slide
+      *ngFor="let item of familyMovies"
+      routerLink="{{'/filme/' + item?.id}}"  
+    >
+      <img 
+        src="{{'https://image.tmdb.org/t/p/w500' + item?.poster_path }}"
+      />
+    </swiper-slide>
+  </swiper-container>
+
+
+  <ion-text>
+    <h2>Séries de família</h2>
+  </ion-text>
+
+  <swiper-container [modules]="swiperModules" [slidesPerView]=screenWidth [spaceBetween]="13">
+    <swiper-slide
+      *ngFor="let item of familyTV"
+      routerLink="{{'/serie/' + item?.id}}"
+    >
+      <img
+        src="{{'https://image.tmdb.org/t/p/w500' + item?.poster_path }}"
+      />
+    </swiper-slide>
+  </swiper-container>
+
+
+
+  <ion-text>
+    <h2>Filmes de fantasia</h2>
+  </ion-text>
+
+  <swiper-container [modules]="swiperModules" [slidesPerView]=screenWidth [spaceBetween]="13">
+    <swiper-slide
+      *ngFor="let item of fantasyMovies"
+      routerLink="{{'/filme/' + item?.id}}"  
+    >
+      <img 
+        src="{{'https://image.tmdb.org/t/p/w500' + item?.poster_path }}"
+      />
+    </swiper-slide>
+  </swiper-container>
+
+
+  <ion-text>
+    <h2>Séries de fantasia</h2>
+  </ion-text>
+
+  <swiper-container [modules]="swiperModules" [slidesPerView]=screenWidth [spaceBetween]="13">
+    <swiper-slide
+      *ngFor="let item of scifiTV"
+      routerLink="{{'/serie/' + item?.id}}"
+    >
+      <img
+        src="{{'https://image.tmdb.org/t/p/w500' + item?.poster_path }}"
+      />
+    </swiper-slide>
+  </swiper-container>
+
+
+
+  <ion-text>
+    <h2>Filmes de história</h2>
+  </ion-text>
+
+  <swiper-container [modules]="swiperModules" [slidesPerView]=screenWidth [spaceBetween]="13">
+    <swiper-slide
+      *ngFor="let item of historyMovies"
+      routerLink="{{'/filme/' + item?.id}}"
+    >
+      <img 
+        src="{{'https://image.tmdb.org/t/p/w500' + item?.poster_path }}"
+      />
+    </swiper-slide>
+  </swiper-container>
+
+  <ion-text>
+    <h2>Filmes de horror</h2>
+  </ion-text>
+
+  <swiper-container [modules]="swiperModules" [slidesPerView]=screenWidth [spaceBetween]="13">
+    <swiper-slide
+      *ngFor="let item of horrorMovies"
+      routerLink="{{'/filme/' + item?.id}}"  
+    >
+      <img 
+        src="{{'https://image.tmdb.org/t/p/w500' + item?.poster_path }}"
+      />
+    </swiper-slide>
+  </swiper-container>
+
+  <ion-text>
+    <h2>Filmes de música</h2>
+  </ion-text>
+
+  <swiper-container [modules]="swiperModules" [slidesPerView]=screenWidth [spaceBetween]="13">
+    <swiper-slide
+      *ngFor="let item of musicMovies"
+      routerLink="{{'/filme/' + item?.id}}"  
+    >
+      <img 
+        src="{{'https://image.tmdb.org/t/p/w500' + item?.poster_path }}"
+      />
+    </swiper-slide>
+  </swiper-container>
+
+  <ion-text>
+    <h2>Filmes de mistério</h2>
+  </ion-text>
+
+  <swiper-container [modules]="swiperModules" [slidesPerView]=screenWidth [spaceBetween]="13">
+    <swiper-slide
+      *ngFor="let item of mysteryMovies"
+      routerLink="{{'/filme/' + item?.id}}"  
+    >
+      <img 
+        src="{{'https://image.tmdb.org/t/p/w500' + item?.poster_path }}"
+      />
+    </swiper-slide>
+  </swiper-container>
+
+  <ion-text>
+    <h2>Séries de mistério</h2>
+  </ion-text>
+
+  <swiper-container [modules]="swiperModules" [slidesPerView]=screenWidth [spaceBetween]="13">
+    <swiper-slide
+      *ngFor="let item of mysteryTV"
+      routerLink="{{'/serie/' + item?.id}}"
+    >
+      <img
+        src="{{'https://image.tmdb.org/t/p/w500' + item?.poster_path }}"
+      />
+    </swiper-slide>
+  </swiper-container>
+i
+
+
+  <ion-text>
+    <h2>Filmes de romance</h2>
+  </ion-text>
+
+  <swiper-container [modules]="swiperModules" [slidesPerView]=screenWidth [spaceBetween]="13">
+    <swiper-slide
+      *ngFor="let item of romanceMovies"
+      routerLink="{{'/filme/' + item?.id}}"
+    >
+      <img 
+        src="{{'https://image.tmdb.org/t/p/w500' + item?.poster_path }}"
+      />
+    </swiper-slide>
+  </swiper-container>
+
+  <ion-text>
+    <h2>Filmes de ficção científica</h2>
+  </ion-text>
+
+  <swiper-container [modules]="swiperModules" [slidesPerView]=screenWidth [spaceBetween]="13">
+    <swiper-slide
+      *ngFor="let item of scienceFictionMovies"
+      routerLink="{{'/filme/' + item?.id}}"
+    >
+      <img 
+        src="{{'https://image.tmdb.org/t/p/w500' + item?.poster_path }}"
+      />
+    </swiper-slide>
+  </swiper-container>
+
+  <ion-text>
+    <h2>Filmes de suspense</h2>
+  </ion-text>
+
+  <swiper-container [modules]="swiperModules" [slidesPerView]=screenWidth [spaceBetween]="13">
+    <swiper-slide
+      *ngFor="let item of thrillerMovies"
+      routerLink="{{'/filme/' + item?.id}}"  
+    >
+      <img 
+        src="{{'https://image.tmdb.org/t/p/w500' + item?.poster_path }}"
+      />
+    </swiper-slide>
+  </swiper-container>
+
+  <ion-text>
+    <h2>Filmes de guerra</h2>
+  </ion-text>
+
+  <swiper-container [modules]="swiperModules" [slidesPerView]=screenWidth [spaceBetween]="13">
+    <swiper-slide
+      *ngFor="let item of warMovies"
+      routerLink="{{'/filme/' + item?.id}}"  
+    >
+      <img 
+        src="{{'https://image.tmdb.org/t/p/w500' + item?.poster_path }}"
+      />
+    </swiper-slide>
+  </swiper-container>
+</ion-content>
