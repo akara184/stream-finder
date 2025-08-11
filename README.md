@@ -1,4 +1,4 @@
-[# stream-finder](https://stream-finder-mu.vercel.app/home)
+[#stream-finder](https://stream-finder-mu.vercel.app/home) < run it on mobile 
 
 
 This project was proposed by the Systems Analysis and Development faculty at UNISUAM University as part of the MOBILE module curriculum.
@@ -26,8 +26,6 @@ A modern and intuitive streaming platform discovery app built with Ionic, Angula
 4. **Open your browser**
    
    Navigate to `http://localhost:####` to see the app 
-
-## 🛠️ Development
 
 ### Project Structure
 
