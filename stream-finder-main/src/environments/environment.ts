@@ -1,5 +1,5 @@
 export const environment = {
-  tmdbKey: "dadc0c005ef5db978255b26bb089a811",
+  tmdbKey: "dadc0c005ef5db978255b26bb089a811", //The API may change due to TMDB rules
   tmdbBearer: "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJkYWRjMGMwMDVlZjVkYjk3ODI1NWIyNmJiMDg5YTgxMSIsInN1YiI6IjY2MDU4MjZkYWFmZWJkMDE4NzE4MWFlMCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.NdJbT1FhwcHbbDRaEFjWa0wPWQragEZGevP64C69JHY",
   production: false,
   firebaseConfig: {
@@ -12,3 +12,4 @@ export const environment = {
     measurementId: "G-4T80N70RE3"
   }
 };
+// you can use the api key, enjoyee :) 
